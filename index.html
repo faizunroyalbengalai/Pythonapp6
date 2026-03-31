@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>pythonapp6</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0d1117;
+      color: #e6edf3;
+      font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      width: 100%;
+      padding: 2rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #238636, #2ea043);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 16px;
+      padding: 3rem 3.5rem;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
+                  0 0 0 1px rgba(255,255,255,0.03);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #58a6ff, #bc8cff, #58a6ff);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .logo-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #1f6feb, #58a6ff);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.75rem;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 16px rgba(88, 166, 255, 0.3);
+    }
+
+    .project-name {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .project-name span {
+      background: linear-gradient(135deg, #58a6ff, #bc8cff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, #58a6ff, #bc8cff);
+      border-radius: 2px;
+      margin: 1.5rem auto;
+    }
+
+    .repo-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      padding: 0.85rem 1.25rem;
+      margin-top: 0.5rem;
+    }
+
+    .repo-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #8b949e;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .repo-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #58a6ff;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .repo-icon {
+      color: #8b949e;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .description {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: #8b949e;
+      line-height: 1.6;
+    }
+
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .tag {
+      background: rgba(88, 166, 255, 0.1);
+      border: 1px solid rgba(88, 166, 255, 0.25);
+      color: #58a6ff;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.3rem 0.75rem;
+      border-radius: 2rem;
+    }
+
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 1.5rem 1rem 2rem;
+      border-top: 1px solid #21262d;
+      margin-top: 2.5rem;
+    }
+
+    .footer-text {
+      font-size: 0.82rem;
+      color: #6e7681;
+      letter-spacing: 0.03em;
+    }
+
+    .footer-text strong {
+      color: #8b949e;
+      font-weight: 600;
+    }
+
+    .footer-dot {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background: linear-gradient(135deg, #58a6ff, #bc8cff);
+      border-radius: 50%;
+      vertical-align: middle;
+      margin: 0 0.5rem;
+    }
+
+    @media (max-width: 540px) {
+      .card {
+        padding: 2rem 1.5rem;
+      }
+      .project-name {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <span class="badge">&#9679; Active Project</span>
+
+    <div class="card">
+      <div class="logo-icon">&#128640;</div>
+
+      <h1 class="project-name"><span>pythonapp6</span></h1>
+
+      <div class="divider"></div>
+
+      <div class="repo-section">
+        <span class="repo-icon">&#128193;</span>
+        <span class="repo-label">Repository</span>
+        <span class="repo-name">Pythonapp6</span>
+      </div>
+
+      <p class="description">
+        A modern Python application hosted on GitHub.
+        Built with clean architecture and best practices in mind.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Open Source</span>
+        <span class="tag">GitHub</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p class="footer-text">
+      <span class="footer-dot"></span>
+      Developed by <strong>Royal Bengal AI</strong>
+      <span class="footer-dot"></span>
+    </p>
+  </footer>
+
+</body>
+</html>
